@@ -4,9 +4,8 @@
 public class Sort {
     public static void main(String args[]) throws Exception {
         int[] array = new int[]{10, 8, 2, 9, 5, 7, 7, 5, 3, 1, 0, 8, 6};
-        System.out.println("Quick Sort:" + printArray(quickSort(array)));
-        array = new int[]{10, 8, 2, 9, 5, 7, 7, 5, 3, 1, 0, 8, 6};
-        System.out.println("Bubble Sort:" + printArray(bubbleSort(array)));
+        System.out.println("Quick Sort:" + printArray(quickSort(array.clone())));
+        System.out.println("Bubble Sort:" + printArray(bubbleSort(array.clone())));
     }
 
     private static int[] quickSort(int[] array) {
