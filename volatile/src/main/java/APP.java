@@ -1,26 +1,25 @@
 /**
  * Created by 蟹老板 on 2017/3/13.
+ * <p>
+ * volatile修辞的作用是让被修辞者在被多线程读写时保持可见性
  */
 public class APP {
-    private static volatile boolean shutdown = false;
+    private static boolean shutdown = false;
+    //private static volatile boolean shutdown = false;
 
     public static void main(String args[]) throws Exception {
         new Thread() {
             public void run() {
-                while (!shutdown) {
-                    System.out.println("run.");
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                System.out.println("start\t" + System.currentTimeMillis());
+                while (!shutdown) { //如果变量shutdown没有用volatile修饰，可能永远无法跳出此循环
                 }
+                System.out.println("shutdowned\t" + System.currentTimeMillis());
             }
         }.start();
-        Thread.sleep(1000);
         new Thread() {
             public void run() {
                 shutdown = true;
+                System.out.println("shutdown...\t" + System.currentTimeMillis());
             }
         }.start();
     }
