@@ -13,6 +13,9 @@
         <module>atomicinteger</module>
         <module>volatile</module>
         <module>algorithm</module>
+        <module>copyonwrite</module>
+        <module>lock</module>
+        <module>font</module>
     </modules>
 
     <build>
